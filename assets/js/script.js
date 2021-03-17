@@ -84,6 +84,20 @@ $(".card .list-group").sortable({
 	},
 });
 
+$("#trash").droppable({
+	accept: ".card .list-group-item",
+	tolderance: "touch",
+	drop: function (event, ui) {
+		ui.draggable.remove();
+	},
+	over: function (event, ui) {
+		console.log("over");
+	},
+	out: function (event, ui) {
+		console.log("out");
+	},
+});
+
 // p element (task description) was clicked
 $(".list-group").on("click", "p", function () {
 	// get the current text
